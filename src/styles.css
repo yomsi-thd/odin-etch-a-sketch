@@ -1,0 +1,5 @@
+/* The container should be 960px wide */
+div.container{
+    width: 960px;
+    height: 960px;
+}
