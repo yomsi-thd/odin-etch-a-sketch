@@ -4,9 +4,8 @@ div.container{
     height: 960px;
     display: flex;
     flex-wrap: wrap;
-    background-color: black;
 }
 
 .square {
-    background-color: pink;
-}
+    border: 1px solid black;
+};
