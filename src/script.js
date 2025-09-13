@@ -14,6 +14,16 @@ function createSquareDivGrid(userInput){
 }
 createSquareDivGrid(defaultGridSize); // The default grid size is 16x16
 
+function addDrawUponHoverToSquareDivs(){
+    const squareDivGrid = document.querySelectorAll(".square");
+    squareDivGrid.forEach((squareDiv) => {
+        squareDiv.addEventListener("mouseover", () => {
+            squareDiv.style["background-color"] = "rgb(0,0,0)";
+        });
+    });
+};
+addDrawUponHoverToSquareDivs(); //The default grid gets an event listener
+
 function removeSquareDivGrid(){
     const squareDivGrid = document.querySelectorAll(".square");
     squareDivGrid.forEach((squareDiv) => container.removeChild(squareDiv));
@@ -32,4 +42,5 @@ button.addEventListener("click", () => {
     let gridSize = getUserDesiredGridSize();
     removeSquareDivGrid();
     createSquareDivGrid(gridSize);
+    addDrawUponHoverToSquareDivs();
 });
