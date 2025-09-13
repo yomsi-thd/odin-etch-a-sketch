@@ -24,8 +24,14 @@ function randomizeBackgroundColorRGB(){
 function addDrawUponHoverToSquareDivs(){
     const squareDivGrid = document.querySelectorAll(".square");
     squareDivGrid.forEach((squareDiv) => {
+        squareDiv.style["background-color"] = randomizeBackgroundColorRGB();
+        let opacity = 0
+        squareDiv.style.opacity = 0;
         squareDiv.addEventListener("mouseover", () => {
-            squareDiv.style["background-color"] = randomizeBackgroundColorRGB();
+            if (opacity !== 1){
+                opacity += 0.1;
+                squareDiv.style.opacity = opacity;
+            };
         });
     });
 };
