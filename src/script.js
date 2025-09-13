@@ -14,11 +14,18 @@ function createSquareDivGrid(userInput){
 }
 createSquareDivGrid(defaultGridSize); // The default grid size is 16x16
 
+function randomizeBackgroundColorRGB(){
+    const RED = Math.floor(Math.random() * 257); //The maximum value of an RGB is 256, the number 257 is put here because of JS' random integer function
+    const GREEN = Math.floor(Math.random() * 257);
+    const BLUE = Math.floor(Math.random() * 257); 
+    return `rgb(${RED}, ${GREEN}, ${BLUE})`;
+}
+
 function addDrawUponHoverToSquareDivs(){
     const squareDivGrid = document.querySelectorAll(".square");
     squareDivGrid.forEach((squareDiv) => {
         squareDiv.addEventListener("mouseover", () => {
-            squareDiv.style["background-color"] = "rgb(0,0,0)";
+            squareDiv.style["background-color"] = randomizeBackgroundColorRGB();
         });
     });
 };
