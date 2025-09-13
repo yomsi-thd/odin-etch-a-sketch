@@ -18,19 +18,19 @@ function randomizeBackgroundColorRGB(){
     const RED = Math.floor(Math.random() * 257); //The maximum value of an RGB is 256, the number 257 is put here because of JS' random integer function
     const GREEN = Math.floor(Math.random() * 257);
     const BLUE = Math.floor(Math.random() * 257); 
-    return `rgb(${RED}, ${GREEN}, ${BLUE})`;
+    return `${RED}, ${GREEN}, ${BLUE}`;
 }
 
 function addDrawUponHoverToSquareDivs(){
     const squareDivGrid = document.querySelectorAll(".square");
     squareDivGrid.forEach((squareDiv) => {
-        squareDiv.style["background-color"] = randomizeBackgroundColorRGB();
-        let opacity = 0
-        squareDiv.style.opacity = 0;
+        let opacity = 0;
+        let rgbBackground = randomizeBackgroundColorRGB();
+        squareDiv.style["background-color"] = `rgba(${rgbBackground}, ${opacity})`;
         squareDiv.addEventListener("mouseover", () => {
             if (opacity !== 1){
                 opacity += 0.1;
-                squareDiv.style.opacity = opacity;
+                squareDiv.style["background-color"] = `rgba(${rgbBackground}, ${opacity})`;
             };
         });
     });
